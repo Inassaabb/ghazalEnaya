@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
@@ -58,7 +57,7 @@ class CustomButton extends StatelessWidget {
         shape: StadiumBorder(),
         fixedSize: Size(
           screenWidth(1.1),
-          screenHieght(12),
+          screenHeight(12),
           // size.height * 0.08,
         ),
       ),

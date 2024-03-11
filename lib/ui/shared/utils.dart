@@ -8,16 +8,36 @@ double screenWidth(double percent) {
   return Get.width / percent;
 }
 
-double screenHieght(double percent) {
+double screenHeight(double percent) {
   return Get.height / percent;
 }
 
 void customLoader() => BotToast.showCustomLoading(toastBuilder: (context) {
       return Container(
-          decoration: BoxDecoration(
-              color: AppColors.mainback.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(10)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
           width: screenWidth(4),
-          height: screenHieght(4),
-          child: SpinKitCircle());
+          height: screenHeight(4),
+          child: SpinKitCircle(
+            color: AppColors.mainBlueColorE,
+          ));
     });
+bool isEmail(String value) {
+  RegExp regExp = new RegExp(
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+  return regExp.hasMatch(value);
+}
+
+bool isPassword(String value) {
+  RegExp regExp = new RegExp(r'^(?=.*?[A-Z])(?=.*?[!@#\$&*~]).{8,}$');
+  return regExp.hasMatch(value);
+}
+
+bool isVaildMobileNo(String value) {
+  RegExp regExp = new RegExp(r'^\+?09[0-9]{8}$');
+  return regExp.hasMatch(value);
+}
+
+bool isVaildName(String value) {
+  RegExp regExp = new RegExp(r"^[a-zA-Z]+(([\'\-\s][a-zA-Z])?[a-zA-Z]*)*$");
+  return regExp.hasMatch(value);
+}

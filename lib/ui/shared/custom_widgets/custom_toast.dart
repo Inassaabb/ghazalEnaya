@@ -1,6 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_templete/core/enums/message_type.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
@@ -12,11 +12,11 @@ class CustomToast {
     Color shadowColor = AppColors.mainBlueColor;
     switch (messageType) {
       case MessageType.REJECTED:
-        imageName = 'rejected-01';
+        imageName = 'rejected';
         shadowColor = AppColors.mainRedcolr;
         break;
       case MessageType.SUCCESS:
-        imageName = 'approved1-01';
+        imageName = 'approved';
         shadowColor = AppColors.mainGreenColor;
         break;
       case MessageType.WARNING:
@@ -38,7 +38,7 @@ class CustomToast {
           return Container(
             margin: EdgeInsets.all(screenWidth(10)),
             width: screenWidth(1.5),
-            height: screenHieght(4),
+            height: screenHeight(4),
             decoration: BoxDecoration(
                 color: AppColors.mainWhiteColor,
                 borderRadius: BorderRadius.circular(20),

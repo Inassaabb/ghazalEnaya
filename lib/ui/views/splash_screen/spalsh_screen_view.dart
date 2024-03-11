@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_image.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 import 'package:flutter_templete/ui/views/splash_screen/splash_screen_controller.dart';
 import 'package:get/get.dart';
 
-//alt+shift+o
 class SplashSceenView extends StatefulWidget {
   const SplashSceenView({super.key});
   @override
@@ -15,39 +15,22 @@ class SplashSceenView extends StatefulWidget {
 
 class _SplashSceenViewState extends State<SplashSceenView> {
   SplashSceenController controller = Get.put(SplashSceenController());
-  //lazyput
-  //putasync
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body: Stack(
-      alignment: Alignment.bottomCenter,
-      fit: StackFit.passthrough,
+            body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          'assets/images/bg_background.svg',
-          height: screenHieght(1),
-          width: screenWidth(1),
+        CustomImage(
+          name: 'logo',
         ),
-        Center(
-            child: SvgPicture.asset(
-          'assets/images/Logo.svg',
-          width: screenWidth(5),
-          height: screenHieght(5),
-        )),
+        screenWidth(20).ph,
         Container(
-          margin: EdgeInsets.only(bottom: screenWidth(3)),
-          // width: size.width*0.1,
-          height: screenWidth(3),
-          child: SpinKitThreeBounce(
-            color: AppColors.mainOrangeColor,
-          ),
+          height: screenWidth(6),
+          child: SpinKitThreeBounce(color: AppColors.mainBlueColorE),
         ),
       ],
     )));
   }
 }
-
-// top:size.hiegh*0.7

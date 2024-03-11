@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_templete/app/app_config.dart';
 import 'package:flutter_templete/core/data/models/apis/token_info.dart';
+import 'package:flutter_templete/core/data/models/apis/user_model.dart';
 import 'package:flutter_templete/core/data/models/cart_model.dart';
 import 'package:flutter_templete/core/enums/data_type.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,53 @@ class SharedPrefrenceRepostory {
   String PREF_APP_LANG = 'app_lang';
   String PREF_CART_LIST = 'cart_list';
   String PREF_SUB_STATUS = 'sub_status';
+  static String PREF_CURRENT_USER_EMAIL = "current user email";
+  static String PREF_USER_INFO = 'user_info';
   //list
+  void setLoginInfo(List<String> value) async {
+    await globalSharedPreference.setStringList(PREF_CURRENT_USER_EMAIL, value);
+  }
+
+  List<String> getLoginInfo() {
+    return globalSharedPreference.getStringList(PREF_CURRENT_USER_EMAIL) ?? [];
+  }
+
+  SaveUser(UserModel usermodel) {
+    setPreference(
+        value: json.encode(usermodel),
+        dataType: DataType.STRING,
+        key: PREF_USER_INFO);
+  }
+
+  UserModel GetUser() {
+    return UserModel.fromJson(json.decode(getPreferenc(
+      key: PREF_USER_INFO,
+    )));
+  }
+
+  // void retrieveUserEmail() {
+  //  {
+  //     userEmailList = prefs.getStringList(PREF_CURRENT_USER_EMAIL) ?? [];
+
+  // }
+
+  // void saveUserEmail(List<String> emailList) async {
+  //   await globalSharedPreference.setStringList(
+  //       PREF_CURRENT_USER_EMAIL, emailList);
+  // }
+  // void setLoginInfo(List<Object?> value) {
+  //   setPreference(
+  //       dataType: DataType.STRINGLIST,
+  //       key: PREF_CURRENT_USER_EMAIL,
+  //       value: value);
+  // }
+
+  // List<Object?> getLoginInfo() {
+  //   if (globalSharedPreference.containsKey(PREF_CURRENT_USER_EMAIL))
+  //     return getPreferenc(key: PREF_CURRENT_USER_EMAIL);
+  //   else
+  //     return [];
+  // }
 
   void setTokenInfo(TokenInfo value) {
     setPreference(

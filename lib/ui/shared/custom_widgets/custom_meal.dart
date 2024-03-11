@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_templete/main.dart';
 import 'package:flutter_templete/ui/shared/colors.dart';
 import 'package:flutter_templete/ui/shared/custom_widgets/custom_text.dart';
+import 'package:flutter_templete/ui/shared/custom_widgets/custom_texttt.dart';
 import 'package:flutter_templete/ui/shared/utils.dart';
 
 class CustomMeal extends StatelessWidget {
@@ -22,7 +23,7 @@ class CustomMeal extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          height: screenHieght(3),
+          height: screenHeight(3),
           width: screenWidth(1),
           child: CachedNetworkImage(
             fit: BoxFit.cover,
@@ -40,11 +41,8 @@ class CustomMeal extends StatelessWidget {
             horizontal: screenWidth(22),
           ),
           child: CustomText(
-            textAlign: TextAlign.start,
             text: text,
             // text: mealList[index].name ?? '',
-            textColor: textColor ?? AppColors.mainGrey,
-            fontSize: screenWidth(20),
           ),
         ),
         (screenWidth(30)).ph,
@@ -60,25 +58,25 @@ class CustomMeal extends StatelessWidget {
                 width: screenWidth(18),
                 height: screenWidth(18),
               ),
-              CustomText(
+              Customtexttt(
                 textAlign: TextAlign.start,
                 text: ' 4.9 ',
                 textColor: AppColors.mainOrangeColor,
                 // fontSize: ,
               ),
-              CustomText(
+              Customtexttt(
                 textAlign: TextAlign.start,
                 text: '(124 ratings) Café',
                 textColor: AppColors.mainlightgrey,
                 // fontSize: ,
               ),
-              CustomText(
+              Customtexttt(
                 textAlign: TextAlign.start,
                 text: ' . ',
                 textColor: AppColors.mainOrangeColor,
                 // fontSize: ,
               ),
-              CustomText(
+              Customtexttt(
                 textAlign: TextAlign.start,
                 text: 'Western Food',
                 textColor: AppColors.mainlightgrey,
